@@ -5,6 +5,8 @@ import com.TeaPot.interfaces.ExtraSessions;
 
 public class Java implements Courses {
 
+    public int x;
+
     //OfficeHours officeHours;
 
     ExtraSessions extraSessions;
