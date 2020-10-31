@@ -5,9 +5,9 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="java" class="com.TeaPot.services.Java">
-        <constructor-arg ref ="officeHours"></constructor-arg>
+       <property name="extraSessions" ref="officeHours"></property>
     </bean>
-    <bean id="\\" class="com.TeaPot.services.Selenium"></bean>
+    <bean id="selenium" class="com.TeaPot.services.Selenium"></bean>
 
     <bean id="officeHours" class="com.TeaPot.services.OfficeHours"></bean>
 
