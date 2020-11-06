@@ -1,5 +1,5 @@
 package com.TeaPot.interfaces;
 
-public interface Courses {
+public interface Course {
     void getTeachingHours();
 }
