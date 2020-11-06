@@ -15,7 +15,7 @@ public class Java implements Course {
     private ExtraSessions extraSessions;
 
 
-    @Autowired
+    //@Autowired  //-> not need anymore after the update of Spring framework
     public Java(@Qualifier("officeHours") ExtraSessions extraSessions) {
         this.extraSessions = extraSessions;
     }
