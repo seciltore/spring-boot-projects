@@ -2,5 +2,5 @@ package com.teapot.enums;
 
 public enum City {
 
-    MCLEAN, FAIRFAX, VIRGINIA, GETTYSBURG, DALLAS, SAN_ANTONIO;
+    MCLEAN, FAIRFAX, ARLINGTON, AUSTIN, DULLES, SAN_ANTONIO;
 }
