@@ -1,10 +1,7 @@
 package com.teapot.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -21,7 +18,7 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping("/teapot")
+    @RequestMapping(method = RequestMethod.POST, value ="/teapot")
     public String getRequestMapping3(){
 
         return "home";
@@ -41,5 +38,43 @@ public class HomeController {
 
         return "home";
     }
+
+    @GetMapping("/home/{name}")
+    public String pathVariableEx(@PathVariable("name") String name){
+
+        System.out.println("name is: " + name);
+        return "home";
+    }
+
+    //http://localhost:8080/home/teapot
+
+    @GetMapping("/home/{name}/{email}")
+    public String pathVariableEx2(@PathVariable("name") String name, @PathVariable("email") String email){
+
+        System.out.println("name is: " + name);
+        System.out.println("email is: " + email);
+        return "home";
+    }
+    //http://localhost:8080/home/secil@teapot.com
+
+    @GetMapping("home/course")
+    public String requestParamEx(@RequestParam("course") String course){
+        System.out.println("name is : " + course);
+        return "home";
+    }
+    //http://localhost:8080/home/course?course=spring -> query param
+
+    //http://localhost:8080/home/spring -> requestparam
+
+
+    @GetMapping(value = "/course")
+    public String requestParamEx2(@RequestParam(value = "name", required = false, defaultValue = "teapot") String name){
+        System.out.println("name is : " + name);
+        return "home";
+    }
+    //http://localhost:8080/course
+
+
+
 
 }
