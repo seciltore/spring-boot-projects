@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Secil's TeaPot</title>
@@ -7,12 +7,13 @@
 
 <body>
 
-    <div th:fragment="app">
+    <div th:fragment="bottom-menu">
         <!-- footer -->
         <footer class="page-footer font-small blue fixed-bottom">
             <div class="footer-copyright text-center py-3">© 2020 TeaPotApp – All Rights Reserved:</div>
         </footer>
     </div>
+
 
     <div th:fragment="teapot">
         <!-- footer -->
@@ -27,5 +28,13 @@
             <div class="footer-copyright text-center py-3">© 2020 Secil's Teapot – All Rights Reserved:</div>
         </footer>
     </div>
+
+    <div th:fragment="main-menu">
+        <a href="https://www.google.com/">Google</a>
+    </div>
+
+    <p th:fragment="footer-menu">
+        <a href="https://www.gmail.com">Privacy</a>
+    </p>
 </body>
 </html>
