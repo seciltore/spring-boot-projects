@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Secil's TeaPot</title>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Age</td>
+                <td>Gender</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="mentor : ${mentors}">
+                <td th:text="${mentor.firstName}">First Name</td>
+                <td th:text="${mentor.lastName}">Last Name</td>
+                <td th:text="${mentor.age}">Age</td>
+                <td th:text="${mentor.gender}">Gender</td>
+            </tr>
+        </tbody>
+        </thead>
+<!--        <tbody>-->
+<!--            <tr>-->
+<!--                <td>Mike</td>-->
+<!--                <td>Smith</td>-->
+<!--                <td>35</td>-->
+<!--                <td>Male</td>-->
+<!--            </tr>-->
+<!--        </tbody>-->
+    </table>
+
+</body>
+</html>
