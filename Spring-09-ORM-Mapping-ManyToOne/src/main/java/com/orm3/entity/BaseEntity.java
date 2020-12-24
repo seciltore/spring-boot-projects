@@ -1,4 +1,4 @@
-package com.teapot.entity;
+package com.orm3.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

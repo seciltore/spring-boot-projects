@@ -1,6 +1,6 @@
-package com.teapot.repository;
+package com.orm3.repository;
 
-import com.teapot.entity.Department;
+import com.orm3.entity.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
