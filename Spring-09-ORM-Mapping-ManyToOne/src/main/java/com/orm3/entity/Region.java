@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Region extends BaseEntity{
 
     private String region;
-    private String  country;
+    private String country;
 
     @OneToOne(mappedBy = "region")
     private Employee employee;

@@ -28,10 +28,9 @@ public class Employee extends BaseEntity {
 
     private int salary;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST},fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
-
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="region_id")
