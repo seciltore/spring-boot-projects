@@ -27,8 +27,4 @@ public interface DepartmentRepository extends JpaRepository<Department,String> {
     List<Department> findDistinctTop3ByDivisionContains(String pattern);
 
 
-
-
-
-
 }
