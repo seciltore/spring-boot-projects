@@ -7,9 +7,8 @@ import com.teapot.enums.MovieType;
 import com.teapot.enums.UserRole;
 import com.teapot.repository.*;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
-
-import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

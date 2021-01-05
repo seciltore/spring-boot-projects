@@ -41,10 +41,10 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Query(value = "SELECT * FROM user_account", nativeQuery = true)
     List<User> retrieveAll();
     //    Write a native query that returns all users in the range of ages?
-    @Query(value = "SELECT * FROM user_account u " +
-            "JOIN account_details ad ON ad.id = u.account_details_id WHERE ad.age BETWEEN ?1 AND ?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM user_account u JOIN account_details ad ON ad.id = u.account_details_id WHERE ad.age BETWEEN ?1 AND ?2", nativeQuery = true)
     List<User> retrieveBetweenAgesRange(Integer first, Integer last);
     //    Write a native query to read a user by email?
     @Query(value = "SELECT * FROM user_account WHERE email = ?1", nativeQuery = true)
     User retrieveByEmail(String email);
+
 }

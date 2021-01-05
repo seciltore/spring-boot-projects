@@ -57,7 +57,7 @@ public interface AccountRepository extends JpaRepository<Account,Long> {
     List<Account> retrieveBySearchCriteria(String pattern);
 
     //Write a native query to read all accounts with an age lower than a specific value
-    @Query(value = "SELECT * FROM account_details WHERE age>?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM account_details WHERE age<?1",nativeQuery = true)
     List<Account> retrieveLessThanAge(int age);
 
 }
