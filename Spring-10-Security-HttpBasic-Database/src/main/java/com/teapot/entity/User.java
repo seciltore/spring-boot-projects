@@ -18,15 +18,15 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private  Long id;
 
     private String username;
     private String password;
     private int active;
-    private String roles; //"ADMIN", "MANAGER"
+    private String roles;
     private String permissions;
 
-    public User(String username, String password, String roles, String permissions) {
+    public User(String username, String password,String roles, String permissions) {
         this.username = username;
         this.password = password;
         this.active = 1;
@@ -41,5 +41,11 @@ public class User {
         return new ArrayList<>();
     }
 
+    public List<String> getPermissionList(){
+        if(this.permissions.length()>0){
+            return Arrays.asList(this.permissions.split(","));
+        }
+        return new ArrayList<>();
 
+    }
 }
