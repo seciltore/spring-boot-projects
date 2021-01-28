@@ -28,4 +28,6 @@ public class ProductController {
     public @ResponseBody List<Product> getProducts(){
         return productService.getProducts();
     }
+
+
 }
