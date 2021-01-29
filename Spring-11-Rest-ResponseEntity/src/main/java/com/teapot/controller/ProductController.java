@@ -3,6 +3,7 @@ package com.teapot.controller;
 import com.teapot.entity.Product;
 import com.teapot.service.ProductService;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -29,7 +30,6 @@ public class ProductController {
         responseHttpHeaders.set("Version", "TeaPot.v1");
         responseHttpHeaders.set("Operation", "Get List");
 
-
         return ResponseEntity
                 .ok()
                 .headers(responseHttpHeaders)
@@ -37,9 +37,17 @@ public class ProductController {
     }
 
     @PostMapping
-    public List<Product> createProduct(@RequestBody Product product){
-        return productService.createProduct(product);
+    public ResponseEntity<List<Product>> createProduct(@RequestBody Product product){
+
+        List<Product> set = productService.createProduct(product);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .header("Version", "TeaPot.V1")
+                .header("Operation", "Create")
+                .body(set);
     }
+
 
     @DeleteMapping(value = "/{id}")
     public List<Product> deleteProduct(@PathVariable("id") long id){
