@@ -24,5 +24,4 @@ public class Course extends BaseEntity {
     @Column(columnDefinition = "text")
     private String description;
 
-
 }

@@ -28,8 +28,4 @@ public class Class extends BaseEntity {
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
-
-
-
-
 }

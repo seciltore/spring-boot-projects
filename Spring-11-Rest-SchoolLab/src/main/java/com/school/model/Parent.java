@@ -41,5 +41,4 @@ public class Parent extends BaseEntity {
     @JoinColumn(name = "address_id")
     private Address address;
 
-
 }
