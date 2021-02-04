@@ -2,6 +2,8 @@ package com.teapot.controller;
 
 import com.teapot.entity.Cinema;
 import com.teapot.repository.CinemaRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,11 +13,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cinema")
+@Tag(name="Cinema", description = "Cinema API")
 public class CinemaController {
     @Autowired
     private CinemaRepository cinemaRepository;
 
     @GetMapping
+    @Operation(summary = "Read all Cinemas")
     public List<Cinema> readAll(){
         return cinemaRepository.findAll();
     }
