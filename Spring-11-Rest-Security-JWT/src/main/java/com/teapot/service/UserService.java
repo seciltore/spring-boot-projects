@@ -2,8 +2,8 @@ package com.teapot.service;
 
 import com.teapot.entity.User;
 import com.teapot.enums.UserState;
+import com.teapot.exception.ServiceException;
 import com.teapot.repository.UserRepository;
-import org.hibernate.service.spi.ServiceException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -35,15 +35,17 @@ public class UserService {
 
         User foundUserByEmail = readByEmail(user.getEmail());
         User foundUserByUsername = readByUsername(user.getUsername());
-        if(foundUserByEmail != null) {
-            throw new ServiceException("This user already exists, please change your email");
-        }
-        if(foundUserByUsername != null) {
-            throw new ServiceException("This user already exists, please change your username");
-        }
+
+//        if(foundUserByEmail != null) {
+//            throw new ServiceException("This user already exists, please change your email");
+//        }
+//        if(foundUserByUsername != null) {
+//            throw new ServiceException("This user already exists, please change your username");
+//        }
 
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setIsVerified(false);
+        user.setIsDeleted(false);
         return userRepository.save(user);
     }
 

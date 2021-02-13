@@ -3,6 +3,7 @@ package com.teapot.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.teapot.enums.UserRole;
 import com.teapot.enums.UserState;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +17,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Where(clause = "is_deleted=false")
-public class User extends BaseEntity{
+public class User extends BaseEntity {
 
     @Column(nullable = false,unique = true)
     private String email;

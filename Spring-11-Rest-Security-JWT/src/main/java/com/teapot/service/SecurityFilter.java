@@ -23,12 +23,10 @@ public class SecurityFilter extends OncePerRequestFilter {
     private final JWTUtil jwtUtil;
     private final SecurityService securityService;
 
-
     public SecurityFilter(JWTUtil jwtUtil, SecurityService securityService) {
         this.jwtUtil = jwtUtil;
         this.securityService = securityService;
     }
-
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest,
                                     HttpServletResponse httpServletResponse,
@@ -39,10 +37,9 @@ public class SecurityFilter extends OncePerRequestFilter {
         String username = null;
 
         if (authorizationHeader != null) {
-            token = authorizationHeader;
+            token = authorizationHeader.replace("Bearer","");
             username = jwtUtil.extractUsername(token);
         }
-
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = securityService.loadUserByUsername(username);
 
