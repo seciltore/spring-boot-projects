@@ -26,7 +26,7 @@ public class OpenApiConfig {
 
         return new OpenAPI()
                 .components(new Components()
-                        .addSecuritySchemes("bearer-jwt",securitySchemeItem))
+                .addSecuritySchemes("bearer-jwt",securitySchemeItem))
                 .info(infoVersion)
                 .addSecurityItem(securityItem);
     }

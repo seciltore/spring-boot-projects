@@ -23,8 +23,10 @@ public class AuthenticationController {
 
     @Autowired
     private UserService userService;
+
     @Autowired
     private AuthenticationManager authenticationManager;
+
     @Autowired
     private JWTUtil jwtUtil;
 
@@ -34,8 +36,8 @@ public class AuthenticationController {
     @Operation(summary = "Login to application")
     public ResponseEntity<ResponseWrapper> doLogin(@RequestBody AuthenticationRequest authenticationRequest){
 
-        String password = authenticationRequest.getPassword();
         String username = authenticationRequest.getUsername();
+        String password = authenticationRequest.getPassword();
 
         User foundUser = userService.readByUsername(username);
 
