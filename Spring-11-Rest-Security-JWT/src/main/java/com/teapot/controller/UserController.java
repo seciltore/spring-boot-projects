@@ -24,7 +24,7 @@ public class UserController {
 
     @GetMapping("/read")
     @PreAuthorize("hasAuthority('USER')")
-//    @PreAuthorize("hasAnyAuthority('USER','ADMIN')")
+  //  @PreAuthorize("hasAnyAuthority('USER','ADMIN')")
     public ResponseEntity<ResponseWrapper> readAll(){
 
         List<User> users = userService.getAll();
