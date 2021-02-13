@@ -4,6 +4,7 @@ import com.teapot.entity.AuthenticationRequest;
 import com.teapot.entity.ResponseWrapper;
 import com.teapot.entity.User;
 import com.teapot.service.UserService;
+import com.teapot.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +22,9 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private JWTUtil jwtUtil;
+
     @PostMapping("/authenticate")
     public ResponseEntity<ResponseWrapper> doLogin(@RequestBody AuthenticationRequest authenticationRequest){
 
@@ -31,6 +35,10 @@ public class AuthenticationController {
 
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
         authenticationManager.authenticate(authenticationToken);
+
+        String jwtToken = jwtUtil.generateToken(foundUser);
+
+        return ResponseEntity.ok(new ResponseWrapper("Successfully logged in!", jwtToken));
 
     }
 }
